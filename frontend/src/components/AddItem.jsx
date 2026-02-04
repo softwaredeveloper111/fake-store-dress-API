@@ -7,7 +7,7 @@ const AddItem = () => {
   const {register,reset,handleSubmit} = useForm();
   async function submitEventHandler(data){
      console.log(data);
-    const res =  await axios.post("http://localhost:3000/api/v1/fashion",data);
+    const res =  await axios.post("https://fake-store-dress-api.onrender.com/api/v1/fashion",data);
     console.log(res)
      reset()
   }

@@ -13,7 +13,7 @@ const DressContainer = () => {
 
    async function fetchData(){
       try {
-         const {data} =  await axios.get("http://localhost:3000/api/v1/fashion")
+         const {data} =  await axios.get("https://fake-store-dress-api.onrender.com/api/v1/fashion")
          /**console.log(data.dresses) */
          setDressList(data.dresses)
         
