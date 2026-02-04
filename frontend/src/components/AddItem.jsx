@@ -1,13 +1,13 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
-import axios from "../utils/Axios";
+import axios from "axios";
 
 const AddItem = () => {
  
   const {register,reset,handleSubmit} = useForm();
   async function submitEventHandler(data){
      console.log(data);
-    const res =  await axios.post("/",data);
+    const res =  await axios.post("http://localhost:3000/api/v1/fashion",data);
     console.log(res)
      reset()
   }

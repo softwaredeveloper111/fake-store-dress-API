@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../utils/Axios";
+import axios from "axios";
 import Loading from "../components/Loading";
 import {useForm} from "react-hook-form";
 
@@ -10,7 +10,7 @@ const AllItems = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get("/");
+      const { data } = await axios.get("http://localhost:3000/api/v1/fashion");
       //  console.log(data.dresses)
       setdressList(data.dresses);
     }
@@ -38,7 +38,7 @@ const AllItems = () => {
 
 
   async function deleteEventHandler(id) {
-    await axios.delete(`/${id}`);
+    await axios.delete(`http://localhost:3000/api/v1/fashion/${id}`);
     setdressList((prev) => prev.filter((item) => item._id !== id));
   }
 
@@ -49,7 +49,7 @@ const AllItems = () => {
 
  async function updateEventHandlerfunc(data){
 
-    await axios.patch(`/${toggle.id}`,data);
+    await axios.patch(`http://localhost:3000/api/v1/fashion/${toggle.id}`,data);
     setdressList(prev=>prev.map(item=>item._id===toggle.id? {...item,...data} : item ))
     setToggle((prev)=>({...prev,val:false,id:null}));
     reset();

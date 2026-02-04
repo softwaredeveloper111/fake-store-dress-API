@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Dress from './Dress'
-import axios from "../utils/Axios";
+import axios from "axios";
 import Loading from "./Loading";
 
 const DressContainer = () => {
@@ -13,7 +13,7 @@ const DressContainer = () => {
 
    async function fetchData(){
       try {
-         const {data} =  await axios.get("/")
+         const {data} =  await axios.get("http://localhost:3000/api/v1/fashion")
          /**console.log(data.dresses) */
          setDressList(data.dresses)
         
